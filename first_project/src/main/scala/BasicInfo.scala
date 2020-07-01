@@ -25,6 +25,8 @@ object BasicInfo extends App {
   // Char
   // Boolean
   // Unit - в return метода, который ничего не возвращает.
+  // Int, BigInt
+  // BigDecimal
 
 
 }

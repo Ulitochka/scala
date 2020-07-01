@@ -1,6 +1,7 @@
 package methods
 
 object CalculateProbability extends App {
+  // https://www.scala-lang.org/api/current/scala/math/index.html
   def normalDistribution(mu: Double, sigma: Double, x: Double): Double = {
     val r: Double = x - mu
     val h: Double = Math.pow(r, 2)
