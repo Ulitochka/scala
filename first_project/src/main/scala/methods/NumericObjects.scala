@@ -13,12 +13,17 @@ object NumericObjects extends App {
 
   def calculate_byte_mask(args: Array[String]) {
     // Посчитайте число единиц в битовой записи числа, считанного с клавиатуры, и выведите на экран.
-    println(readLine().toInt.toBinaryString.replaceAll("0", "").length)
+    val result = readLine().toInt.toBinaryString.replaceAll("0", "").length
   }
 
   // 90.0 0.9 0.1 -> 10
   // 100.0, 0.99, 0.98 -> 50
   val result = crispsWeight(90.0, 0.90, 0.1)
-  println(result)
+//  println(result)
+
+  def fibs(num: Int): Int = {
+    if (num < 3) 1
+    else fibs(num - 1) + fibs(num - 2)
+  }
 
 }

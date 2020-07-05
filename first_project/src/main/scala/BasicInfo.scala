@@ -49,7 +49,25 @@ object BasicInfo extends App {
   }
 //  println(reverse_string(2, 6, init_string = "foobarbaz"))
 
+  def snake_case_validator(input: String): Unit = {
+    var mark: Boolean = false
+    // Должна содержать только строчные латинские буквы и символ подчёркивания
+    val simple_reg = "[a-z_]+"
+    val latin_characters: Boolean = input.matches(simple_reg)
+    // Символ подчёркивания не должен стоять в начале и в конце строки
+    val start_character: Boolean = input.startsWith("_")
+    val end_character: Boolean = input.endsWith("_")
+    // Два символа подчёркивания не могут стоять рядом
+    val underscores: Boolean = input.contains("__")
+    val marks = Array(start_character, end_character, underscores)
 
+    if (latin_characters && marks.forall(_ == false)) {
+      mark = true
+    }
+    println(s"$input --> $mark")
+  }
+  val texts = Array("apple_banana", "Apple_Banana", "вывыв", "dsdsd-dsds", "dsds__dsds")
+//  for (t <- texts) snake_case_validator(t)
 
   val name: String = "Russia"
   val simple_int: Int = 2
@@ -68,6 +86,30 @@ object BasicInfo extends App {
       |c
       |""".stripMargin
 //  println(many_strings)
+
+
+  // ФУНКЦИИ (до 22 аргументов максимум для лямбда функций)
+  val addOne: Int => Int = x => x + 1
+  val plus: (Int, Int) => Int = (x, y) => x + y
+  val plus_short = (_: Int) + (_: Int) // только если перменные используются 1 раз
+  // конверсия метода в функцию
+  def addOne(x: Int) = {
+    x + 1
+  }
+  val add1 = addOne _
+
+  // КАРРИРОВАНИЕ
+  def plus_c: Int => Int => Int = x => y => x + y
+  val plus3 = (x: Int, y: Int, z: Int) => x + y + z
+  val plus3_c: Int => Int => Int => Int = plus3.curried
+
+  // КОМПОЗИЦИЯ ФУНКЦИЙ
+  val plus1 = (_: Int) + 1
+  val mul1 = (_: Int) * 3
+  val plusThenMul = plus1 andThen mul1
+  val plusBeforeMul = plus1 compose mul1
+
+  // ОБОБЩЕННЫЕ МЕТОДЫ
 
 }
 
