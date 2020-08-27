@@ -21,6 +21,7 @@ class FeatureNormalizer(norm_type: String) {
       "max" -> max(matrix(::, *)),
       "std" -> stddev(matrix(::, *))
     )
+
   (matrix, statistics)
   }
 
@@ -42,8 +43,6 @@ class FeatureNormalizer(norm_type: String) {
         data(::, i) := (current_column - statistics("mean")(i)) / statistics("std")(i)
       }
     }
-    println(data)
     data
   }
-
 }
