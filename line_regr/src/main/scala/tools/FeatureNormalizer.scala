@@ -10,7 +10,7 @@ class FeatureNormalizer(norm_type: String) {
 
   /**
    * Creates a new DenseMatrix from data and map of data statistics.
-   * @param data
+   * @param data lists with features
    * @return a tuple of (matrix, statistics)
    */
   def get_statistics(data: data_type): (DenseMatrix[Double], stat_type) = {
@@ -28,8 +28,8 @@ class FeatureNormalizer(norm_type: String) {
   /**
    * Feature normalization.
    *  min-max normalization, z-score
-   * @param data
-   * @param statistics
+   * @param data feature matrix
+   * @param statistics map with statistics
    * @return a dense matrix
    */
   def normalize(data: DenseMatrix[Double], statistics: stat_type): DenseMatrix[Double] = {

@@ -22,7 +22,8 @@ object Pipeline {
 
     if (model_type == "anal") {
       val model = new Anal()
-      model.solution(train_norm, y_train)
+      val params = model.solution(train_norm, y_train)
+      model.predict(test_norm, y_test, params)
 
     }
 
