@@ -25,17 +25,21 @@ class Anal {
     parameters
   }
 
-  def predict(x_test: data, y_test: data, params: data): Unit = {
+  def predict(x_test: data, params: data): DenseMatrix[Double] = {
     val x_test_bias = add_b(x_test)
     val predictions = DenseMatrix.zeros[Double](x_test_bias.rows, 1)
 
     for (i <- 0 until x_test_bias.rows) {
       val current_feature_vector = x_test_bias(i, ::)
       val prediction = sum(current_feature_vector * params)
-      predictions(i, ::) := prediction
+
+      if (prediction < 0.0) {
+        predictions(i, ::) := 0.0
+      }
+      else {
+        predictions(i, ::) := prediction
+      }
     }
-
-    println(predictions)
-
+    predictions
   }
 }
