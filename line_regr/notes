@@ -1,4 +1,8 @@
 https://mvnrepository.com/artifact/org.scalanlp/breeze
 https://alvinalexander.com/scala/sbt-how-to-compile-run-package-scala-project/
 https://www.scala-sbt.org/download.html
-
+sudo apt-get install libgfortran-6-dev
+https://wrobstory.gitbooks.io/python-to-scala/content/
+https://github.com/scalanlp/breeze/wiki/Linear-Algebra-Cheat-Sheet
+https://lamastex.gitbooks.io/scalable-data-science/content/db/week5/09_LinearAlgebraIntro/017_LAlgIntro.html
+https://github.com/lihaoyi/os-lib

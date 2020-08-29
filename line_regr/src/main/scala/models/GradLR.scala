@@ -53,9 +53,7 @@ class GradLR extends BaseModel() {
       cost_function += current_cf
       println(s"Iteration: $i; Cost_f: $current_cf")
     }
-
     create_pot(cost_function)
-
     phi
   }
 }

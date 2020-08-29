@@ -48,7 +48,6 @@ class DataTools {
     val (train, test): data_set = split_train_test(
       data = dataset)
     println("train= %s; test=%s;".format(train.size, test.size))
-
     (train, test)
   }
 }

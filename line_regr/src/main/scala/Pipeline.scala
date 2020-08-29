@@ -5,8 +5,12 @@ import models.AnalitLR, models.GradLR
 object Pipeline {
   def main(args: Array[String]): Unit = {
 
-    val data_catalog: os.pwd.ThisType = os.pwd / "data".toString
-    val model_type: String = "grad"
+    if (args.length == 0) {
+      println("dude, i need at least one parameter")
+    }
+
+    val data_catalog: os.pwd.ThisType = os.pwd / "data".toString()
+    val model_type: String = args(0)
     val model = None
 
     val data_tools = new DataTools()
@@ -21,7 +25,7 @@ object Pipeline {
     val test_norm = feature_normalizer.normalize(test_matrix, train_statistics)
     val y_test = data_tools.transform_labels2matrix(test.map(_._2))
 
-    if (model_type == "anal") {
+    if (model_type == "analitic") {
       val model = new AnalitLR()
       val params = model.solution(train_norm, y_train)
       val predictions = model.predict(test_norm, params)
