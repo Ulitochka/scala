@@ -1,12 +1,13 @@
 package tools
+
 import breeze.linalg._
 
 class DataTools {
 
   type data_set = (List[(List[Double], Double)], List[(List[Double], Double)])
 
-  def transform_labels2matrix(labels: List[Double]): DenseMatrix[Double] = {
-    val labels_matrix = DenseMatrix(labels.toArray).t
+  def transform_labels2matrix(labels: List[Double]): DenseVector[Double] = {
+    val labels_matrix = DenseVector(labels.toArray)
     labels_matrix
   }
 
@@ -29,6 +30,7 @@ class DataTools {
 
   /**
    * Read data_set file and split data into train and test subsets.
+   *
    * @param path2data path to data file
    * @return a tuple of (train and test data)
    */

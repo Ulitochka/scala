@@ -7,7 +7,8 @@ scalaVersion := "2.13.3"
 libraryDependencies  ++= Seq(
   "org.scalanlp" %% "breeze" % "1.0",
   "org.scalanlp" %% "breeze-natives" % "1.0",
-  "org.scalanlp" %% "breeze-viz" % "1.0"
+  "org.scalanlp" %% "breeze-viz" % "1.0",
+  "com.lihaoyi" %% "os-lib" % "0.7.1"
 )
 
 resolvers ++= Seq(

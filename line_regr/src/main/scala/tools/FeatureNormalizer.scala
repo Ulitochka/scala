@@ -1,4 +1,5 @@
 package tools
+
 import breeze.linalg._
 import breeze.stats._
 
@@ -10,25 +11,26 @@ class FeatureNormalizer(norm_type: String) {
 
   /**
    * Creates a new DenseMatrix from data and map of data statistics.
+   *
    * @param data lists with features
    * @return a tuple of (matrix, statistics)
    */
   def get_statistics(data: data_type): (DenseMatrix[Double], stat_type) = {
-    val matrix = DenseMatrix(data.map(_.toArray):_*)
+    val matrix = DenseMatrix(data.map(_.toArray): _*)
     val statistics = Map(
       "mean" -> mean(matrix(::, *)),
       "min" -> min(matrix(::, *)),
       "max" -> max(matrix(::, *)),
       "std" -> stddev(matrix(::, *))
     )
-
-  (matrix, statistics)
+    (matrix, statistics)
   }
 
   /**
    * Feature normalization.
-   *  min-max normalization, z-score
-   * @param data feature matrix
+   * min-max normalization, z-score
+   *
+   * @param data       feature matrix
    * @param statistics map with statistics
    * @return a dense matrix
    */
